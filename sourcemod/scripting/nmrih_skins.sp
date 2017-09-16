@@ -15,7 +15,6 @@ static const char	PLUGIN_NAME[]		= "[NMRiH] Skins",
 
 #define MAX_MODELS 24
 
-
 bool bEnable,
 	bAdminGroup,
 	bAdminOnly,
@@ -38,9 +37,9 @@ public Plugin myinfo =
 {
 	name		= PLUGIN_NAME,
 	author		= PLUGIN_AUTOR,
-	description	= "Skins menu for NMRiH",
+	description	= "Skins menu with 3rd person view for NMRiH",
 	version		= PLUGIN_VERSION,
-	url			= ""
+	url			= "https://forums.alliedmods.net/showthread.php?t=301319"
 }
 
 public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
@@ -60,7 +59,7 @@ public void OnPluginStart()
 	(CVar = CreateConVar("sm_skins_admingroup",	"1", "Enable/Disable the possebility to use the Groupsystem", _, true, _, true, 1.0)).AddChangeHook(CVarChanged_AdminGroup);
 	bAdminGroup = CVar.BoolValue;
 
-	(CVar = CreateConVar("sm_skins_adminonly",	"0", 'Enable/Disable deny of access to the menu except for admins', _, true, _, true, 1.0)).AddChangeHook(CVarChanged_AdminOnly);
+	(CVar = CreateConVar("sm_skins_adminonly",	"0", "Enable/Disable deny of access to the menu except for admins", _, true, _, true, 1.0)).AddChangeHook(CVarChanged_AdminOnly);
 	bAdminOnly = CVar.BoolValue;
 
 	(CVar = CreateConVar("sm_skins_spawntimer",	"1", "Enable/Disable a timer that changes the model a second after the event 'player_spawn'", _, true, _, true, 1.0)).AddChangeHook(CVarChanged_SpawnTimer);
